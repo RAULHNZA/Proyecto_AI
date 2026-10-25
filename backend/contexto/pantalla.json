@@ -1,0 +1,21 @@
+{
+  "_ayuda": "Qué se muestra en los paneles laterales. 'claves' son las palabras con las que el panel se ilumina cuando se mencionan. 'proyectos' son títulos exactos de los encabezados '## Proyecto N:' de planeacion_2027.md.",
+  "pilares": [
+    {
+      "titulo": "Capacidades ejecutivas en IA",
+      "detalle": "Capacitación para que directivos y gerentes decidan con datos e IA.",
+      "claves": ["primer pilar", "capacidades ejecutivas", "capacitación", "comienza con las personas"]
+    },
+    {
+      "titulo": "Agentes especializados para decidir",
+      "detalle": "Expertos digitales 24/7 entrenados con el conocimiento de Red Ambiental.",
+      "claves": ["segundo pilar", "agentes especializados", "expertos digitales", "conversaciones inteligentes"]
+    },
+    {
+      "titulo": "IA generativa y autónoma en el negocio",
+      "detalle": "La IA como capacidad transversal dentro de todas las plataformas.",
+      "claves": ["tercer pilar", "generativa", "autónom", "capacidad transversal"]
+    }
+  ],
+  "proyectos": ["Ruta Maestra Inteligente", "Sistema Inteligente CIPRES", "Aplicación Domiciliaria"]
+}

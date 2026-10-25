@@ -48,13 +48,13 @@ export default function VoiceVisualizer({ speaking, volume, className = '', styl
       ctx.clearRect(0, 0, w, h)
       const mid = h / 2
       const grad = ctx.createLinearGradient(0, 0, w, 0)
-      grad.addColorStop(0, '#c4b5fd')
-      grad.addColorStop(0.5, '#7dd3fc')
-      grad.addColorStop(1, '#6ee7b7')
+      grad.addColorStop(0, '#9fdcff')
+      grad.addColorStop(0.5, '#3cbbf4')
+      grad.addColorStop(1, '#b5e34d')
 
       ctx.lineCap = 'round'
       ctx.lineJoin = 'round'
-      ctx.shadowColor = 'rgba(125, 211, 252, 0.9)'
+      ctx.shadowColor = 'rgba(60, 187, 244, 0.9)'
       ctx.shadowBlur = 10 + amp * 14
       ctx.strokeStyle = grad
 

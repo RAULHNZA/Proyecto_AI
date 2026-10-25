@@ -1,0 +1,29 @@
+# Términos que Whisper debe escribir bien (uno por línea). Solo se usan los primeros ~600 caracteres:
+# los más importantes van arriba.
+Red Ambiental
+RED-i
+Ruta Maestra Inteligente
+Sistema Inteligente CIPRES
+Gestión 360
+Aplicación Domiciliaria
+Domiciliaria
+Industrial y Comercial
+RPBI
+CIPRES
+SAP
+Microsoft 365
+Azure
+Zero Trust
+geocercas
+gemelos digitales
+telemetría
+OT
+inteligencia artificial
+IA generativa
+agentes autónomos
+agente de IA
+analítica avanzada
+gobierno de datos
+Torre VAO
+Valle Oriente
+Planeación Estratégica TI 2027

@@ -4,3 +4,10 @@ dist/
 __pycache__/
 .venv/
 venv/
+# Datos de la reunión: no se versionan
+backend/sesiones/
+backend/contexto/planeacion_2027.md
+backend/contexto/nombres.txt
+backend/contexto/guion_redi.md
+# Paquete portatil generado por distribucion/empaquetar.ps1 (incluye llaves)
+entrega/

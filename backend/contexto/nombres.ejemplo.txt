@@ -1,0 +1,4 @@
+# Copia este archivo como nombres.txt y escribe un nombre completo por línea.
+# Estos nombres ayudan a Whisper a escribirlos bien, pero NUNCA aparecen en la conclusión
+# ni en las respuestas: si el modelo los menciona, la conclusión se regenera y se reemplazan por "el equipo".
+# Carlos Delgado

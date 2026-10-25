@@ -1,0 +1,45 @@
+RED-i - Agente de Inteligencia Artificial de Red Ambiental
+Planeacion Estrategica TI 2027
+==========================================================
+
+QUE NECESITA LA LAPTOP
+- Windows 10 u 11.
+- Google Chrome o Microsoft Edge.
+- Python 3.10 o superior (https://www.python.org/downloads/ ; al instalar marca
+  "Add python.exe to PATH"). Si la laptop es de la empresa, pidelo a TI.
+- Internet (Groq y Vapi son servicios en la nube).
+- Bocinas o salida de audio a la sala. Microfono si se van a hacer preguntas por voz.
+
+INSTALACION (una sola vez)
+1. Descomprime RED-i.zip en una carpeta, por ejemplo el Escritorio.
+2. Doble clic en instalar.bat y espera a que diga "Instalacion terminada".
+3. Si te avisa que se creo backend\.env, abrelo con el Bloc de notas y escribe
+   la llave GROQ_API_KEY (y opcionalmente GROQ_API_KEY_AGENTE_PLANEACION).
+
+USO
+1. Doble clic en iniciar_red-i.bat. Se abre el navegador en http://127.0.0.1:8000
+   (si no se abre solo, escribe esa direccion en Chrome o Edge).
+2. La primera vez, acepta el permiso del microfono.
+3. Presiona "Interactua conmigo": RED-i expone la estrategia de IA 2027 y despues
+   responde preguntas por voz o escritas en la caja de texto.
+4. "Terminar" cierra la ronda de preguntas.
+5. Para apagar RED-i, cierra la ventana negra del servidor.
+
+EDITAR CONTENIDO (sin tocar codigo, con el Bloc de notas)
+- backend\contexto\guion_redi.md        Lo que dice RED-i al presionar el boton.
+- backend\contexto\planeacion_2027.md   Informacion que usa para responder preguntas.
+- backend\contexto\pantalla.json        Pilares y proyectos de los paneles laterales.
+- backend\contexto\glosario.txt         Terminos para la transcripcion.
+Despues de editar basta con recargar la pagina (F5).
+
+SI ALGO FALLA
+- "No se encontro Python": instala Python y vuelve a ejecutar instalar.bat.
+- La pagina no abre: revisa que la ventana del servidor siga abierta y entra a
+  http://127.0.0.1:8000
+- Estado del servidor y llaves cargadas: http://127.0.0.1:8000/api/health
+- RED-i no habla: revisa internet, volumen y que el navegador tenga permiso de microfono.
+  La exposicion queda escrita en pantalla con el boton "Leer en voz alta" como respaldo.
+
+IMPORTANTE
+backend\.env contiene llaves privadas (Groq). No compartas esta carpeta ni el .zip
+fuera del equipo del evento.

@@ -1,13 +1,17 @@
-.env
+# Se regenera en cada máquina
 node_modules/
-dist/
 __pycache__/
 .venv/
 venv/
-# Datos de la reunión: no se versionan
-backend/sesiones/
-backend/contexto/planeacion_2027.md
-backend/contexto/nombres.txt
-backend/contexto/guion_redi.md
-# Paquete portatil generado por distribucion/empaquetar.ps1 (incluye llaves)
+
+# DATOS SENSIBLES: nunca se suben al repositorio (ver README, "Lo que falta al descargar del repositorio")
+# Llaves de Groq y Vapi
+.env
+# Pantalla compilada: lleva dentro la llave pública y el ID del asistente de Vapi
+dist/
+# Paquete portátil: incluye backend\.env con las llaves
 entrega/
+# Transcripciones de las sesiones
+backend/sesiones/
+# Nombres de personas para el filtro
+backend/contexto/nombres.txt

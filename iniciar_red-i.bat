@@ -10,6 +10,13 @@ if not exist ".venv\Scripts\python.exe" (
   exit /b 1
 )
 
+if not exist "..\frontend\dist\index.html" (
+  echo Falta la pantalla compilada frontend\dist: no viene en el repositorio porque lleva llaves.
+  echo Pidele a Raul Hernandez el archivo RED-i.zip o sigue ANTES_DE_INSTALAR.md
+  pause
+  exit /b 1
+)
+
 echo.
 echo   RED-i esta corriendo en http://127.0.0.1:8000
 echo   No cierres esta ventana mientras se use RED-i.

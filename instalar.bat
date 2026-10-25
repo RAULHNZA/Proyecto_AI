@@ -28,16 +28,28 @@ backend\.venv\Scripts\python.exe -m pip install --disable-pip-version-check -q -
 backend\.venv\Scripts\python.exe -m pip install --disable-pip-version-check -r backend\requirements.txt
 if errorlevel 1 goto :error
 
-echo [3/3] Revisando llaves ...
+echo [3/3] Revisando llaves y pantalla ...
+set "FALTA="
 if not exist "backend\.env" (
   copy "backend\.env.example" "backend\.env" >nul
-  echo   Se creo backend\.env : abrelo con el Bloc de notas y escribe la llave GROQ_API_KEY.
-) else (
-  echo   backend\.env ya existe.
+  echo   Se creo backend\.env : pega ahi las llaves de Groq.
+)
+findstr /c:"gsk_..." "backend\.env" >nul 2>nul && (
+  echo   FALTA: la llave GROQ_API_KEY en backend\.env
+  set "FALTA=1"
+)
+if not exist "frontend\dist\index.html" (
+  echo   FALTA: la pantalla compilada frontend\dist - necesita las llaves de Vapi
+  set "FALTA=1"
 )
 
 echo.
-echo Instalacion terminada. Para abrir RED-i ejecuta: iniciar_red-i.bat
+if defined FALTA (
+  echo Instalacion de Python terminada, pero faltan datos sensibles que no vienen en el repositorio.
+  echo Pidele a Raul Hernandez el archivo RED-i.zip, o las llaves, y sigue ANTES_DE_INSTALAR.md
+) else (
+  echo Instalacion terminada. Para abrir RED-i ejecuta: iniciar_red-i.bat
+)
 echo.
 pause
 exit /b 0

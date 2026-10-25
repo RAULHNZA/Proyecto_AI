@@ -16,6 +16,24 @@ INSTALACION (una sola vez)
 3. Si te avisa que se creo backend\.env, abrelo con el Bloc de notas y escribe
    la llave GROQ_API_KEY (y opcionalmente GROQ_API_KEY_AGENTE_PLANEACION).
 
+LO QUE TE PUEDE PEDIR LA LAPTOP
+- Python: si instalar.bat dice "No se encontro Python", instalalo marcando
+  "Add python.exe to PATH". En laptops de la empresa suele pedir permisos de
+  administrador: solicitalo a TI o al Centro de software.
+- "Windows protegio su PC" (SmartScreen) al abrir instalar.bat o iniciar_red-i.bat:
+  clic en "Mas informacion" y luego "Ejecutar de todas formas".
+- Internet hacia pypi.org durante la instalacion (1-2 minutos). Si un proxy de la
+  empresa lo bloquea, la instalacion falla con un mensaje: pide acceso a TI.
+- Llaves: no pide nada si el paquete trae backend\.env. Si falta, lo crea y hay
+  que pegar la llave GROQ_API_KEY con el Bloc de notas.
+- Ventana negra del servidor: no la cierres mientras se use RED-i. Si dice que el
+  puerto 8000 esta ocupado, cierra el programa que lo este usando.
+- En el navegador, la primera vez: permiso de microfono. Elige "Permitir";
+  sin eso RED-i no puede conectarse.
+- No pide Node, cuentas ni contrasenas.
+- Fuera de la laptop: internet durante el evento, saldo en la cuenta de Vapi y el
+  asistente de Vapi con voz en espanol de Mexico.
+
 USO
 1. Doble clic en iniciar_red-i.bat. Se abre el navegador en http://127.0.0.1:8000
    (si no se abre solo, escribe esa direccion en Chrome o Edge).

@@ -31,7 +31,7 @@ New-Item -ItemType Directory -Force (Join-Path $out 'frontend') | Out-Null
 Copy-Item (Join-Path $root 'backend\main.py'), (Join-Path $root 'backend\requirements.txt'), (Join-Path $root 'backend\.env.example') (Join-Path $out 'backend')
 Copy-Item (Join-Path $root 'backend\contexto\*') (Join-Path $out 'backend\contexto') -Recurse
 Copy-Item (Join-Path $root 'frontend\dist') (Join-Path $out 'frontend\dist') -Recurse
-Copy-Item (Join-Path $PSScriptRoot 'instalar.bat'), (Join-Path $PSScriptRoot 'iniciar_red-i.bat'), (Join-Path $PSScriptRoot 'LEEME.txt') $out
+Copy-Item (Join-Path $root 'instalar.bat'), (Join-Path $root 'iniciar_red-i.bat'), (Join-Path $PSScriptRoot 'LEEME.txt') $out
 
 $envFile = Join-Path $root 'backend\.env'
 if (-not $SinLlaves -and (Test-Path $envFile)) {

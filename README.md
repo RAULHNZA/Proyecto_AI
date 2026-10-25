@@ -11,9 +11,11 @@ Reglas del agente: **nunca menciona personas ni responsables** (sí puede nombra
 frontend/          React + Vite + Tailwind + @vapi-ai/web (pantalla y voz)
 backend/           FastAPI + Groq (Whisper y LLM) o Anthropic; sirve también la pantalla compilada
 backend/contexto/  guion, presentación, pantalla, glosario (contenido editable)
-backend/sesiones/  respaldo de cada sesión (no se versiona)
-distribucion/      instalador, iniciador, guía y empaquetador para otra laptop
-entrega/           paquete generado RED-i + RED-i.zip (no se versiona: incluye llaves)
+backend/sesiones/  respaldo de cada sesión (no se sube)
+instalar.bat       instala en una laptop nueva (entorno de Python + librerías)
+iniciar_red-i.bat  abre RED-i en http://127.0.0.1:8000
+distribucion/      guía LEEME.txt y empaquetador del zip
+entrega/           paquete generado RED-i + RED-i.zip (no se sube: lleva llaves)
 ```
 
 ## Etapas
@@ -25,6 +27,46 @@ entrega/           paquete generado RED-i + RED-i.zip (no se versiona: incluye l
 | Opcional | Columna derecha "Proyectos con IA" (3 proyectos de `pantalla.json`). | `VITE_PROYECTOS_VISIBLES="true"` en `frontend/.env` |
 
 Los interruptores están en [frontend/src/lib/features.js](frontend/src/lib/features.js). Todo el código de la etapa 2 está completo, solo oculto.
+
+## Instalar desde GitHub en otra laptop
+
+> **Al repositorio le faltan a propósito los datos sensibles.** Lee primero [ANTES_DE_INSTALAR.md](ANTES_DE_INSTALAR.md): explica qué falta y qué pedirle a Raúl Hernández.
+
+No se suben: las llaves (`backend/.env`, `frontend/.env`), la pantalla compilada (`frontend/dist`, lleva la llave de Vapi), el paquete `entrega/` (lleva las llaves) y las transcripciones de `backend/sesiones/`.
+
+**Camino rápido (recomendado):** pedirle a Raúl el archivo **`RED-i.zip`** por un medio privado. Trae todo, incluidas las llaves y la pantalla compilada, y solo necesita Python: descomprimir, `instalar.bat` y `iniciar_red-i.bat`.
+
+**Camino desde el repositorio** (necesita Python 3.10+ **y Node 18+**):
+
+1. Pedirle a Raúl los 4 valores: `GROQ_API_KEY`, `GROQ_API_KEY_AGENTE_PLANEACION`, `VITE_VAPI_PUBLIC_KEY` y `VITE_VAPI_ASSISTANT_ID`.
+2. Descargar el repositorio (**Code → Download ZIP** y descomprimir, o `git clone https://github.com/RAULHNZA/Proyecto_AI.git`).
+3. Crear las llaves copiando las plantillas y pegando los valores con el Bloc de notas:
+   - `backend\.env.example` → `backend\.env` (llaves de Groq).
+   - `frontend\.env.example` → `frontend\.env` (llave pública y asistente de Vapi).
+4. Compilar la pantalla:
+   ```powershell
+   cd frontend
+   npm install
+   npx vite build --mode portable
+   ```
+5. Doble clic en **`instalar.bat`** (revisa y avisa si falta algo) y después en **`iniciar_red-i.bat`** → http://127.0.0.1:8000.
+
+### Qué va a pedir la laptop nueva
+
+| Momento | Qué aparece o se necesita | Qué hacer |
+|---|---|---|
+| Antes de instalar | **Python 3.10+**. Si falta, `instalar.bat` avisa "No se encontró Python". | Instalarlo marcando **"Add python.exe to PATH"**. En equipos de la empresa suele requerir **permisos de administrador**: pedirlo a TI o al Centro de software. |
+| Antes de instalar | El proyecto viene en un ZIP de GitHub. | **Descomprimirlo** primero; no ejecutar los `.bat` desde dentro del ZIP. |
+| `instalar.bat` | Aviso **"Windows protegió su PC"** (SmartScreen), porque el archivo viene de internet. | **Más información → Ejecutar de todas formas**. |
+| `instalar.bat` | **Internet hacia pypi.org** para descargar las librerías (1-2 min). | Si un proxy corporativo lo bloquea, falla con un mensaje en rojo: pedir acceso a TI. |
+| `instalar.bat` | **Llaves y pantalla**: el zip de Raúl ya las trae; el repositorio no. | Si faltan, `instalar.bat` lo avisa: seguir [ANTES_DE_INSTALAR.md](ANTES_DE_INSTALAR.md). |
+| `iniciar_red-i.bat` | Puede repetirse el aviso de **SmartScreen**. | Igual que arriba. |
+| `iniciar_red-i.bat` | Una **ventana negra** (el servidor). Si el **puerto 8000 está ocupado**, marca error. | No cerrarla mientras se use RED-i. Si hay error, cerrar el programa que use el puerto 8000. |
+| En el navegador | **Permiso de micrófono** la primera vez. | **Permitir**: sin eso Vapi no conecta. |
+
+Con el zip no pide Node, cuentas ni contraseñas (las llaves de Vapi van dentro de la pantalla compilada). Desde el repositorio sí se necesita Node para compilar la pantalla.
+
+Fuera de la laptop se necesita: **internet durante el evento** (Groq y Vapi están en la nube), **saldo en la cuenta de Vapi** y el asistente de Vapi con **voz y transcriptor en español de México**.
 
 ## Instalar y usar en otra laptop (paquete portátil)
 
@@ -98,12 +140,12 @@ Se relee en cada uso: basta con recargar la página después de editar.
 
 | Archivo | Uso |
 |---|---|
-| `guion_redi.md` | **Lo que dice RED-i** al presionar el botón, tal cual. El saludo se ajusta solo a la hora (días/tardes/noches). Escribir años y cifras con palabras. Si no existe, se genera una conclusión con `bienvenida.txt` + lo escuchado. No se versiona. |
-| `planeacion_2027.md` | Información del evento (datos, agenda, pilares, proyectos `## Proyecto N: ...`) con la que responde preguntas. Si no existe se usa `planeacion_2027.ejemplo.md`. No se versiona. |
+| `guion_redi.md` | **Lo que dice RED-i** al presionar el botón, tal cual. El saludo se ajusta solo a la hora (días/tardes/noches). Escribir años y cifras con palabras. Si no existe, se genera una conclusión con `bienvenida.txt` + lo escuchado. |
+| `planeacion_2027.md` | Información del evento (datos, agenda, pilares, proyectos `## Proyecto N: ...`) con la que responde preguntas. Si no existe se usa `planeacion_2027.ejemplo.md`. |
 | `pantalla.json` | Paneles laterales: los 3 pilares (con `claves` para iluminarse cuando se mencionan) y qué proyectos se muestran. |
 | `glosario.txt` | Términos que Whisper debe escribir bien; solo usa los primeros ~600 caracteres. |
 | `bienvenida.txt` | Bienvenida del modo sin guion. |
-| `nombres.txt` | Nombres de personas (uno por línea): ayudan a Whisper pero nunca salen en lo que dice RED-i. Plantilla en `nombres.ejemplo.txt`. No se versiona. |
+| `nombres.txt` | Nombres de personas (uno por línea): ayudan a Whisper pero nunca salen en lo que dice RED-i. Plantilla en `nombres.ejemplo.txt`. |
 
 ## Pantalla
 
